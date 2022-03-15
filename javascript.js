@@ -1,16 +1,40 @@
 // Temporary prompts for user inputs for now.
 let a = prompt('Please enter a number: ');
+let operator = prompt('Please enter the operator (+, -, *, /');
 let b = prompt('Please enter a second number: ');
-let number1 = parseInt(a);
-let number2 = parseInt(b);
+let number1 = parseFloat(a);
+let number2 = parseFloat(b);
+
+// Main.
 console.log('number1 is', number1);
 console.log('number2 is', number2);
+operate(operator, number1, number2);
 
-// Functions to call to test with prompt values.
-add(number1, number2);
-subtract(number1, number2);
-multiply(number1, number2);
-divide(number1, number2);
+// Compute the result.
+function operate(operator, number1, number2)
+{
+    switch(operator)
+    {
+        case '+':
+            console.log('operator is', operator);
+            add(number1, number2);
+            break;
+        case '-':
+            console.log('operator is', operator);
+            subtract(number1, number2);
+            break;
+        case '*':
+            console.log('operator is', operator);
+            multiply(number1, number2);
+            break;
+        case '/':
+            console.log('operator is', operator);
+            divide(number1, number2);
+            break;
+        default:
+            alert("Didn't receive an operator, or type not as expected.");
+    }
+}
 
 // Add.
 function add(number1, number2)
@@ -40,6 +64,12 @@ function multiply(number1, number2)
 function divide(number1, number2)
 {
     let divideValue = (number1 / number2);
-    console.log(`${number1} / ${number2} =` , divideValue);
+
+    // Error check for division by 0.
+    if (divideValue == "Infinity")
+    {
+        return alert("Error! Can't divide by 0.");
+    }
+    else return console.log(`${number1} / ${number2} =` , divideValue);
     //return divideValue;
 }
