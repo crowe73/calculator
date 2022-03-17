@@ -31,6 +31,10 @@ function operate(operator, number1, number2)
             console.log('operator is', operator);
             divide(number1, number2);
             break;
+        case '%':
+            console.log('operator is', operator);
+            Percent(number1, number2);
+            break;
         default:
             alert("Didn't receive an operator, or type not as expected.");
     }
@@ -72,4 +76,12 @@ function divide(number1, number2)
     }
     else return console.log(`${number1} / ${number2} =` , divideValue);
     //return divideValue;
+}
+
+function Percent(number1, number2)
+{
+    // Turn percent into a decimal.
+    let percentAsDecimal = (number1 / 100);
+    let percent = percentAsDecimal * number2;
+    console.log(`${number1}% of ${number2} is ${percent}`);
 }
