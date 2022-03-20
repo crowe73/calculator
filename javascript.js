@@ -1,7 +1,7 @@
 // Temporary prompts for user inputs for now.
-let a = prompt('Please enter a number: ');
-let operator = prompt('Please enter the operator (+, -, *, /');
-let b = prompt('Please enter a second number: ');
+let a = 0; //prompt('Please enter a number: ');
+let operator = '+' //prompt('Please enter the operator (+, -, *, /');
+let b = 0 //prompt('Please enter a second number: ');
 let number1 = parseFloat(a);
 let number2 = parseFloat(b);
 

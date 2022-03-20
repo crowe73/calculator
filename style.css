@@ -1,0 +1,137 @@
+html
+{
+    text-align: center;
+    font-family: monospace;
+}
+
+#calculator
+{
+    display: flex;
+    min-height: 95vh;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
+#calculator-container
+{
+    background-color: black;
+    border: 1px solid rgba(0, 255, 0, 1);
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    gap: 2px;
+}
+
+#display
+{
+    grid-column: 1 / -1;
+    background-color: rgba(0, 255, 0, .2);
+    color: rgba(0, 255, 0, 1);
+    border: 1px solid rgba(0, 255, 0, 1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 5px;
+    font-size: 5.5em;
+    font-weight: initial;
+    margin: 10px;
+}
+
+button
+{
+    margin: 10px;
+    border-radius: 10%;
+    border: 1px solid rgba(0, 255, 0, 1);
+    font-weight: initial;
+    font-size: 2em;
+    font-family: monospace;
+    background-color: rgba(0, 255, 0, 0);
+    color: rgba(0, 255, 0, 1);
+}
+
+.operator
+{
+    background-color: rgba(0, 255, 0, .4);
+}
+
+.operator:focus
+{
+    background-color: rgba(0, 255, 0, .5);
+}
+
+.equals
+{
+    background-color: rgba(0, 255, 0, .2);
+}
+
+.equals:active
+{
+    background-color: rgba(0, 255, 0, .3);
+}
+
+.operand
+{
+    background-color: rgba(0, 255, 0, .2);
+}
+
+.operand:active
+{
+    background-color: rgba(0, 255, 0, .3);
+}
+
+.decimal
+{
+    background-color: rgba(0, 255, 0, .2);
+}
+
+.decimal:active
+{
+    background-color: rgba(0, 255, 0, .3);
+}
+
+.all-clear
+{
+    background-color: rgba(0, 255, 0, .6);
+}
+
+.all-clear:active
+{
+    background-color: rgba(0, 255, 0, .7);
+}
+
+.clear
+{
+    background-color: rgba(0, 255, 0, .6);
+}
+
+.clear:active
+{
+    background-color: rgba(0, 255, 0, .7);
+}
+
+.sign
+{
+    background-color: rgba(0, 255, 0, .2);
+}
+
+.sign:active
+{
+    background-color: rgba(0, 255, 0, .3);
+}
+
+.percent
+{
+    background-color: rgba(0, 255, 0, .4);
+}
+
+.percent:active
+{
+    background-color: rgba(0, 255, 0, .5);
+}
