@@ -13,3 +13,5 @@ A simple calculator app.
 03/16/2022 21:14 - Add percent function.
 
 03/19/2022 21:42 - Add calculator UI.
+
+03/23/2022 00:26 - Add calculator functionality to UI.
