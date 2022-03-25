@@ -62,12 +62,15 @@ function divide(number1, number2)
     }
 }
 
-function Percent(number1, number2)
+// Turn percent into a decimal.
+function percent(number1, number2)
 {
-    // Turn percent into a decimal.
-    let percentAsDecimal = (number1 / 100);
-    let percent = percentAsDecimal * number2;
-    console.log(`${number1}% of ${number2} is ${percent}`);
+    let percentValue = (number1 / 100) * number2;
+    let rounded = Math.round((percentValue + Number.EPSILON) * 100) / 100;
+    rounded = rounded.toFixed(2);
+    console.log("percent", rounded);
+    const calcDisplay = document.querySelector("#display");
+    calcDisplay.textContent = rounded;
 }
 
 // Use operator variable to determine which function to call.
@@ -91,10 +94,10 @@ function operate(operator, number1, number2)
             console.log('operator is', operator);
             divide(number1, number2);
             break;
-        //case '%':
-            //console.log('operator is', operator);
-            //Percent(number1, number2);
-            //break;
+        case '%':
+            console.log('operator is', operator);
+            percent(number1, number2);
+            break;
         default:
             alert("Didn't receive an operator, or type not as expected.");
     }
@@ -201,7 +204,14 @@ function runCalculator()
     }
 
     // DOM for "Clear" button.
-    const clearButton = document.querySelector(".clear");
+    //const clearButton = document.querySelector(".clear");
+    //clearButton.addEventListener('click', () => 
+    //{
+        //location.reload();
+    //})
+
+    // DOM for "All Clear" button.
+    const clearButton = document.querySelector(".all-clear");
     clearButton.addEventListener('click', () => 
     {
         location.reload();
