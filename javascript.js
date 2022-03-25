@@ -9,100 +9,6 @@ let tempOperatorArray = [];
 
 runCalculator();
 
-// Add.
-function add(number1, number2)
-{
-    let addValue = (number1 + number2);
-    let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log("add", rounded);
-    const calcDisplay = document.querySelector("#display");
-    calcDisplay.textContent = rounded;
-}
-
-// Subtract.
-function subtract(number1, number2)
-{
-    let subtractValue = (number1 - number2);
-    let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log("subtract", rounded);
-    const calcDisplay = document.querySelector("#display");
-    calcDisplay.textContent = rounded;
-}
-
-// Multiply.
-function multiply(number1, number2)
-{
-    let multiplyValue = (number1 * number2);
-    let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log("multiply", rounded);
-    const calcDisplay = document.querySelector("#display");
-    calcDisplay.textContent = rounded;
-}
-
-// Divide.
-function divide(number1, number2)
-{
-    let divideValue = (number1 / number2);
-
-    // Error check for division by 0.
-    if (divideValue == "Infinity")
-    {
-        return alert("Error! Can't divide by 0.");
-    }
-    else
-    {
-        let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
-        rounded = rounded.toFixed(2);
-        console.log("divide", rounded);
-        const calcDisplay = document.querySelector("#display");
-        calcDisplay.textContent = rounded;
-    }
-}
-
-// Turn percent into a decimal.
-function percent(number1, number2)
-{
-    let percentValue = (number1 / 100) * number2;
-    let rounded = Math.round((percentValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log("percent", rounded);
-    const calcDisplay = document.querySelector("#display");
-    calcDisplay.textContent = rounded;
-}
-
-// Use operator variable to determine which function to call.
-function operate(operator, number1, number2)
-{
-    switch(operator)
-    {
-        case '+':
-            console.log('operator is', operator);
-            add(number1, number2);
-            break;
-        case '-':
-            console.log('operator is', operator);
-            subtract(number1, number2);
-            break;
-        case '*':
-            console.log('operator is', operator);
-            multiply(number1, number2);
-            break;
-        case '/':
-            console.log('operator is', operator);
-            divide(number1, number2);
-            break;
-        case '%':
-            console.log('operator is', operator);
-            percent(number1, number2);
-            break;
-        default:
-            alert("Didn't receive an operator, or type not as expected.");
-    }
-}
-
 function runCalculator()
 {
     getNumberClicked();
@@ -204,15 +110,30 @@ function runCalculator()
     }
 
     // DOM for "Clear" button.
-    //const clearButton = document.querySelector(".clear");
-    //clearButton.addEventListener('click', () => 
-    //{
-        //location.reload();
-    //})
+    const clearButton = document.querySelector(".clear");
+    clearButton.addEventListener('click', () => 
+    {
+        const calcDisplay = document.querySelector("#display");
+        if (number1 != "")
+        {
+            if (number2 != "")
+            {
+                tempNumber2Array = [];
+                number2 = 0;
+                calcDisplay.textContent = number2;
+            }
+            else
+            {
+                tempNumber1Array = [];
+                number1 = 0;
+                calcDisplay.textContent = number1;
+            }
+        }
+    })
 
     // DOM for "All Clear" button.
-    const clearButton = document.querySelector(".all-clear");
-    clearButton.addEventListener('click', () => 
+    const allClearButton = document.querySelector(".all-clear");
+    allClearButton.addEventListener('click', () => 
     {
         location.reload();
     })
@@ -275,4 +196,98 @@ function runCalculator()
             console.log("number2 decimal button should be disabled now");
         }
     })
+}
+
+// Use operator variable to determine which function to call.
+function operate(operator, number1, number2)
+{
+    switch(operator)
+    {
+        case '+':
+            console.log('operator is', operator);
+            add(number1, number2);
+            break;
+        case '-':
+            console.log('operator is', operator);
+            subtract(number1, number2);
+            break;
+        case '*':
+            console.log('operator is', operator);
+            multiply(number1, number2);
+            break;
+        case '/':
+            console.log('operator is', operator);
+            divide(number1, number2);
+            break;
+        case '%':
+            console.log('operator is', operator);
+            percent(number1, number2);
+            break;
+        default:
+            alert("Didn't receive an operator, or type not as expected.");
+    }
+}
+
+// Add.
+function add(number1, number2)
+{
+    let addValue = (number1 + number2);
+    //let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
+    //rounded = rounded.toFixed(2);
+    console.log("add", addValue);
+    const calcDisplay = document.querySelector("#display");
+    calcDisplay.textContent = addValue;
+}
+
+// Subtract.
+function subtract(number1, number2)
+{
+    let subtractValue = (number1 - number2);
+    //let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
+    //rounded = rounded.toFixed(2);
+    console.log("subtract", subtractValue);
+    const calcDisplay = document.querySelector("#display");
+    calcDisplay.textContent = subtractValue;
+}
+
+// Multiply.
+function multiply(number1, number2)
+{
+    let multiplyValue = (number1 * number2);
+    //let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
+    //rounded = rounded.toFixed(2);
+    console.log("multiply", multiplyValue);
+    const calcDisplay = document.querySelector("#display");
+    calcDisplay.textContent = multiplyValue;
+}
+
+// Divide.
+function divide(number1, number2)
+{
+    let divideValue = (number1 / number2);
+
+    // Error check for division by 0.
+    if (divideValue == "Infinity")
+    {
+        return alert("Error! Can't divide by 0.");
+    }
+    else
+    {
+        //let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
+        //rounded = rounded.toFixed(2);
+        console.log("divide", divideValue);
+        const calcDisplay = document.querySelector("#display");
+        calcDisplay.textContent = divideValue;
+    }
+}
+
+// Percent
+function percent(number1, number2)
+{
+    let percentValue = (number1 / 100) * number2;
+    //let rounded = Math.round((percentValue + Number.EPSILON) * 100) / 100;
+    //rounded = rounded.toFixed(2);
+    console.log("percent", percentValue);
+    const calcDisplay = document.querySelector("#display");
+    calcDisplay.textContent = percentValue;
 }
