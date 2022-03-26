@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
 html
 {
     text-align: center;
@@ -7,13 +9,23 @@ html
 #calculator
 {
     display: flex;
+    flex-direction: column;
+    gap: 50px;
     min-height: 95vh;
     justify-content: center;
     align-content: center;
     align-items: center;
-    height: 100vh;
+    height: 98vh;
     overflow: hidden;
     background-color: black;
+}
+
+.title
+{
+    font-family: 'Londrina Outline', cursive;
+    font-size: 100px;
+    color: rgba(0, 255, 0, 1);
+    
 }
 
 #calculator-container

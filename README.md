@@ -19,3 +19,5 @@ A simple calculator app.
 03/24/2022 21:02 - Add all clear and percent functionality.
 
 03/25/2022 00:40 - Add clear functionality.
+
+03/26/2022 00:42 - Add custom font Londrina outline and final code cleanup.

@@ -22,27 +22,21 @@ function runCalculator()
         {
             button.addEventListener('click', () => 
             {
-                console.log("Hit me for the first number!");
                 savedFirstValue = button.getAttribute("value");
-                console.log(savedFirstValue);
                 const calcDisplay = document.querySelector("#display");
 
                 // Append to number1 if multiple numbers are pressed and display it.
                 if (operator == "")
                 {
                     tempNumber1Array.push(savedFirstValue);
-                    console.log("Show me the array1 : ", tempNumber1Array);
                     number1 = tempNumber1Array.join("");
-                    console.log("Saved first value is: ", number1);
                     calcDisplay.textContent = number1;
                 }
                 else
                 {
                     // Append to number2 if multiple numbers are pressed and display out.
                     tempNumber2Array.push(savedFirstValue);
-                    console.log("Show me the array2 : ", tempNumber2Array);
                     number2 = tempNumber2Array.join("");
-                    console.log("Number2 is: ", number2);
                     calcDisplay.textContent = number2;
                 }
             })
@@ -56,15 +50,11 @@ function runCalculator()
         {
             button.addEventListener('click', () => 
             {
-                console.log("Hit me operator!");
                 operator = button.getAttribute("value");
-                console.log(operator);
                 tempOperatorArray.push(operator);
-                console.log("Store temp operator in array for string calculations: ", tempOperatorArray);
 
                 // Enable the decimal button if disabled from previous click/use.
                 document.querySelector(".decimal").disabled = false;
-                console.log("Decimal button should be enabled.");
 
                 // Check to see if a multi-operand string exists and needs calculated on the fly.
                 if ((tempNumber1Array != "") && (tempNumber2Array != ""))
@@ -75,22 +65,14 @@ function runCalculator()
                     number1 = parseFloat(number1);
                     number2 = parseFloat(number2);
                     let tempOperator = tempOperatorArray[tempOperatorArray.length - 2].toString();
-                    console.log("Running STRING calculations now");
                     operate(tempOperator, number1, number2);
                     let tempStringValue = calcDisplay.textContent;
-                    console.log("Temp string value: ", tempStringValue);
-                    console.log("Clearing out the arrays and numbers now!");
                     tempNumber1Array = [];
                     tempNumber2Array = [];
                     number1 = 0;
                     number2 = 0;
-                    console.log("array 1:", tempNumber1Array);
-                    console.log("array 2:", tempNumber2Array);
-                    console.log("number 1:", number1);
-                    console.log("number 2:", number2);
                     tempNumber1Array.push(tempStringValue);
                     number1 = tempNumber1Array.join("");
-                    console.log("Pushed string value to array 1: ", tempNumber1Array);
                 }
             })
         })
@@ -101,7 +83,6 @@ function runCalculator()
         const equalsButton = document.querySelector(".equals");
         equalsButton.addEventListener('click', () => 
         {
-            console.log("Time to run the math!", number1, number2, operator);
             const calcDisplay = document.querySelector("#display");
             number1 = parseFloat(number1);
             number2 = parseFloat(number2);
@@ -146,9 +127,7 @@ function runCalculator()
         if (operator == "")
         {
             const calcDisplay = document.querySelector("#display");
-            console.log("Negative button registered here!");
             tempNumber1Array.splice(0, 1, (tempNumber1Array[0] * -1).toString());
-            console.log("Append the array with negative number: ", tempNumber1Array);
             number1 = tempNumber1Array.join("");
             calcDisplay.textContent = number1;
         }
@@ -156,9 +135,7 @@ function runCalculator()
         {
             // Append "+/-" to numberArray2 and display out.
             const calcDisplay = document.querySelector("#display");
-            console.log("Negative button registered here on number2!");
             tempNumber2Array.splice(0, 1, (tempNumber2Array[0] * -1).toString());
-            console.log("Append the array with negative number on number2: ", tempNumber2Array);
             number2 = tempNumber2Array.join("");
             calcDisplay.textContent = number2;
         }
@@ -168,7 +145,6 @@ function runCalculator()
     const decimalButton = document.querySelector(".decimal");
     decimalButton.addEventListener('click', () => 
     {
-        console.log("decimal pressed");
         let decimalButton = ".";
         const calcDisplay = document.querySelector("#display");
 
@@ -176,24 +152,18 @@ function runCalculator()
         if (operator == "")
         {
             const calcDisplay = document.querySelector("#display");
-            console.log("Decimal button registered here!", decimalButton);
             tempNumber1Array.push(decimalButton);
-            console.log("Append the array1 with decimal: ", tempNumber1Array);
             number1 = tempNumber1Array.join("");
             calcDisplay.textContent = number1;
             document.querySelector(".decimal").disabled = true;
-            console.log("number1 decimal button should be disabled now"); 
         }
         else
         {
             const calcDisplay = document.querySelector("#display");
-            console.log("Decimal button registered here!", decimalButton);
             tempNumber2Array.push(decimalButton);
-            console.log("Append the array1 with decimal: ", tempNumber1Array);
             number2 = tempNumber2Array.join("");
             calcDisplay.textContent = number2;
             document.querySelector(".decimal").disabled = true;
-            console.log("number2 decimal button should be disabled now");
         }
     })
 }
@@ -204,23 +174,18 @@ function operate(operator, number1, number2)
     switch(operator)
     {
         case '+':
-            console.log('operator is', operator);
             add(number1, number2);
             break;
         case '-':
-            console.log('operator is', operator);
             subtract(number1, number2);
             break;
         case '*':
-            console.log('operator is', operator);
             multiply(number1, number2);
             break;
         case '/':
-            console.log('operator is', operator);
             divide(number1, number2);
             break;
         case '%':
-            console.log('operator is', operator);
             percent(number1, number2);
             break;
         default:
@@ -232,9 +197,6 @@ function operate(operator, number1, number2)
 function add(number1, number2)
 {
     let addValue = (number1 + number2);
-    //let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
-    //rounded = rounded.toFixed(2);
-    console.log("add", addValue);
     const calcDisplay = document.querySelector("#display");
     calcDisplay.textContent = addValue;
 }
@@ -243,9 +205,6 @@ function add(number1, number2)
 function subtract(number1, number2)
 {
     let subtractValue = (number1 - number2);
-    //let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
-    //rounded = rounded.toFixed(2);
-    console.log("subtract", subtractValue);
     const calcDisplay = document.querySelector("#display");
     calcDisplay.textContent = subtractValue;
 }
@@ -254,9 +213,6 @@ function subtract(number1, number2)
 function multiply(number1, number2)
 {
     let multiplyValue = (number1 * number2);
-    //let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
-    //rounded = rounded.toFixed(2);
-    console.log("multiply", multiplyValue);
     const calcDisplay = document.querySelector("#display");
     calcDisplay.textContent = multiplyValue;
 }
@@ -273,9 +229,6 @@ function divide(number1, number2)
     }
     else
     {
-        //let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
-        //rounded = rounded.toFixed(2);
-        console.log("divide", divideValue);
         const calcDisplay = document.querySelector("#display");
         calcDisplay.textContent = divideValue;
     }
@@ -285,9 +238,6 @@ function divide(number1, number2)
 function percent(number1, number2)
 {
     let percentValue = (number1 / 100) * number2;
-    //let rounded = Math.round((percentValue + Number.EPSILON) * 100) / 100;
-    //rounded = rounded.toFixed(2);
-    console.log("percent", percentValue);
     const calcDisplay = document.querySelector("#display");
     calcDisplay.textContent = percentValue;
 }
